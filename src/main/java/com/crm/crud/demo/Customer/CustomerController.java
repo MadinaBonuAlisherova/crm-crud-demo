@@ -13,7 +13,6 @@ public class CustomerController {
 
     private final CustomerService customerService;
 
-
     @Autowired
     public CustomerController(CustomerService customerService) {
         this.customerService = customerService;
@@ -27,12 +26,8 @@ public class CustomerController {
 
 
     @RequestMapping(method = RequestMethod.GET, path = "/{id}")
-    public String displayCustomer(@PathVariable("id") Long customerId){
-        Customer customer = customerService.getCustomerById(customerId);
-        if (customer == null){
-            return "Customer not found with id "+customerId;
-        }
-        return "Customer found "+customerId;
+    public Customer displayCustomer(@PathVariable("id") Long customerId){
+        return customerService.getCustomerById(customerId);
     }
 
     //Post mapping

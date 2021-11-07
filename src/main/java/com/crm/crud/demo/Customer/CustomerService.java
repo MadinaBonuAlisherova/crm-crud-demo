@@ -1,6 +1,5 @@
 package com.crm.crud.demo.Customer;
 
-import net.bytebuddy.implementation.bytecode.Throw;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -24,7 +23,13 @@ public class CustomerService {
 
     //Get by Id
     public Customer getCustomerById(Long id){
-        return customerRepository.getById(id);
+        Customer customer = customerRepository.getById(id);
+
+        if (customer == null){
+            throw new IllegalStateException("Customer not found with id " + id);
+        }
+
+        return customer;
     }
 
 
