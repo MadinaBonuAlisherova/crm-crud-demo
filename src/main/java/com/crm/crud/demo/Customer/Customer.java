@@ -11,15 +11,6 @@ public class Customer {
     @GeneratedValue(
             strategy = GenerationType.IDENTITY
     )
-//    @SequenceGenerator(
-//            name = "customer_sequence",
-//            sequenceName = "customer_sequence",
-//            allocationSize = 1
-//    )
-//    @GeneratedValue(
-//            strategy = GenerationType.SEQUENCE,
-//            generator = "customer_sequence"
-//    )
     @Column(name = "id")
     private Long id;
 
@@ -41,7 +32,7 @@ public class Customer {
     @Column(name = "inn")
     private String inn;
 
-    @Column(name = "passportId")
+    @Column(name = "passport_id")
     private String passportId;
 
     public Customer() {
